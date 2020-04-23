@@ -1,7 +1,7 @@
-<%! func head(w io.Writer, tx *bolt.Tx) error %>
+<%! func head(w io.Writer, tx *bbolt.Tx) error %>
 
 <%% import "path/filepath" %%>
-<%% import "github.com/boltdb/bolt" %%>
+<%% import "go.etcd.io/bbolt" %%>
 
 <head>
   <meta charset="utf-8">

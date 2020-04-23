@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/boltdb/bolt"
+	"go.etcd.io/bbolt"
 )
 
 //line error.ego:1
@@ -97,7 +97,7 @@ func Error(w io.Writer, err error) error {
 }
 
 //line head.ego:1
-func head(w io.Writer, tx *bolt.Tx) error {
+func head(w io.Writer, tx *bbolt.Tx) error {
 //line head.ego:2
 	if _, err := fmt.Fprintf(w, "\n\n"); err != nil {
 		return err
@@ -187,7 +187,7 @@ func Index(w io.Writer) error {
 }
 
 //line nav.ego:1
-func nav(w io.Writer, tx *bolt.Tx) error {
+func nav(w io.Writer, tx *bbolt.Tx) error {
 //line nav.ego:2
 	if _, err := fmt.Fprintf(w, "\n\n"); err != nil {
 		return err
@@ -216,7 +216,7 @@ func nav(w io.Writer, tx *bolt.Tx) error {
 }
 
 //line page.ego:1
-func Page(w io.Writer, r *http.Request, tx *bolt.Tx, indexes []int, directID int, showUsage bool) error {
+func Page(w io.Writer, r *http.Request, tx *bbolt.Tx, indexes []int, directID int, showUsage bool) error {
 //line page.ego:2
 	if _, err := fmt.Fprintf(w, "\n\n"); err != nil {
 		return err

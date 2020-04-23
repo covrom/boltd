@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/boltdb/bolt"
-	"github.com/boltdb/boltd"
+	"github.com/maxhille/boltd"
+	"go.etcd.io/bbolt"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 	}
 
 	// Open the database.
-	db, err := bolt.Open(path, 0600, nil)
+	db, err := bbolt.Open(path, 0600, nil)
 	if err != nil {
 		log.Fatal(err)
 	}

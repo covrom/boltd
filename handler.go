@@ -5,12 +5,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/boltdb/bolt"
-	"github.com/boltdb/boltd/templates"
+	"github.com/maxhille/boltd/templates"
+	"go.etcd.io/bbolt"
 )
 
 // NewHandler returns a new root HTTP handler.
-func NewHandler(db *bolt.DB) http.Handler {
+func NewHandler(db *bbolt.DB) http.Handler {
 	h := &handler{db}
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", h.index)
@@ -19,7 +19,7 @@ func NewHandler(db *bolt.DB) http.Handler {
 }
 
 type handler struct {
-	db *bolt.DB
+	db *bbolt.DB
 }
 
 func (h *handler) index(w http.ResponseWriter, r *http.Request) {
@@ -27,7 +27,7 @@ func (h *handler) index(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *handler) page(w http.ResponseWriter, r *http.Request) {
-	err := h.db.View(func(tx *bolt.Tx) error {
+	err := h.db.View(func(tx *bbolt.Tx) error {
 		showUsage := (r.FormValue("usage") == "true")
 
 		// Use the direct page id, if available.
