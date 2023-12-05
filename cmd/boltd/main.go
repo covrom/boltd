@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/maxhille/boltd"
+	"github.com/covrom/boltd"
 	"go.etcd.io/bbolt"
 )
 

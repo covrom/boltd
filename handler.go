@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/maxhille/boltd/templates"
+	"github.com/covrom/boltd/templates"
 	"go.etcd.io/bbolt"
 )
 
