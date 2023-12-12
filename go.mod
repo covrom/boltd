@@ -1,6 +1,6 @@
 module github.com/covrom/boltd
 
-go 1.21.4
+go 1.21
 
 require go.etcd.io/bbolt v1.3.8
 
